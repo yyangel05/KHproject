@@ -28,8 +28,7 @@
 		File imageFile = new File("C:\\java\\App\\KH10GALLERY\\WebContent\\image", image);
 		if (imageFile.exists()) {
 			for (int i = 0; true; i++) {
-				imageFile = new File("C:\\java\\App\\KH10GALLERY\\WebContent\\image",
-						image + "_" + i);
+				imageFile = new File("C:\\java\\App\\KH10GALLERY\\WebContent\\image", image + "_" + i);
 				if (!imageFile.exists()) {
 					image = image + "_" + i;
 					break;

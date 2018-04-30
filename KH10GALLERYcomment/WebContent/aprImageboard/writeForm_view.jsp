@@ -38,10 +38,10 @@
 
 <form action="write.jsp" method="post" enctype="multipart/form-data"
 	onSubmit="return validate(this)">
-	<input type="hidden" name="levels" value="${theme.levels + 1}">
-	<c:if test="${! empty param.groupId}">
-		<input type="hidden" name="groupId" value="${param.groupId}">
-	</c:if>
+<input type="hidden" name="levels" value="${theme.levels + 1}">
+<c:if test="${! empty param.groupId}">
+	<input type="hidden" name="groupId" value="${param.groupId}">
+</c:if>
 <c:if test="${! empty param.parentId}">
 <input type="hidden" name="parentId" value="${param.parentId}">
 </c:if>

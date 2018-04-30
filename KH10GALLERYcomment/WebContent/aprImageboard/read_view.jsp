@@ -1,15 +1,44 @@
+<%@page import="com.sun.org.apache.xerces.internal.impl.dtd.models.CMAny"%>
+<%@page import="gallery.Comment"%>
 <%@ page contentType="text/html; charset=euc-kr"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="gallery.Theme"%>
 <%@ page import="gallery.ThemeManager"%>
 <%@ page import="gallery.ThemeManagerException"%>
+<%@ page import = "gallery.Comment" %>
+<%@ page import = "gallery.CommentManager" %>
 
 <%
 	String themeId = request.getParameter("id");
-
+	int num = Integer.parseInt(request.getParameter("id"));
 	ThemeManager manager = ThemeManager.getInstance();
 	Theme theme = manager.select(Integer.parseInt(themeId));
+	
+	
+    CommentManager cmanager = CommentManager.getInstance();
+    /* Comment cmt = cmanager.getComments(num);  */
 %>
+
+<script language="JavaScript">
+function validate(form) {
+
+    if (form.commenter.value == "") {
+        alert("이름을 입력하세요.");
+        return false;
+    } 
+    else if (form.password.value == "") {
+        alert("암호를 입력하세요.");
+        return false;
+    } 
+    else if (form.commentt.value == "") {
+        alert("내용을 입력하세요");
+        return false;
+    }
+}
+</script>
+
+
+
 <c:set var="theme" value="<%=theme%>" />
 <c:if test="${empty theme}">
 존재하지 않는 테마 이미지 입니다.
@@ -52,6 +81,58 @@
 		</tr>
 	</table>
 </c:if>
+
+
+<form action="comment.jsp" method="post" name="comment" onSubmit="return validate(this)">
+<table width="100%" border="1" cellpadding="1" cellspacing="0">
+<input type="hidden" name="content_id" value="<%=theme.getId() %>">
+<input type="hidden" name="comment_id" value="<%=2 %>"> 
+
+	
+	<%
+	
+	%>
+	
+	<tr>
+	    <td>작성자</td>
+	    <td><input type=text name=commenter></td>
+	</tr>
+	<tr> 
+	    <td>비밀번호</td>
+	    <td><input type=password name=password></td>
+	</tr>
+	
+	<tr>
+	    <td>내용</td>
+	    <td>
+	    <textarea name=commentt cols="40" rows="8"></textarea>
+	    </td>
+	</tr>
+	
+	<tr>
+	    <td colspan="2">
+	    <input type="submit" value="댓글작성">
+	    <input type="button" value="취소" onClick="javascript:history.go(-1)">
+	    </td>
+	</tr>
+</form>
+</table>
+
+
+
+<%-- <table>
+<tr> <!-- 댓글을 파라미터로 가져와서 출력하는 부분 -->
+	<td>
+		<!-- 내용 부분: 시작 -->
+		<jsp:include  page="commentForm_view.jsp" flush="false" />
+		  <jsp:include  page="${param.COMMENTPAGE}" flush="false" />
+		<!-- 내용 부분: 끝 -->
+	<td>
+</tr>
+</table>
+ --%>
+
+
 
 <script language="JavaScript" type="text/javascript">
 	function goReply() {
