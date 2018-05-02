@@ -92,6 +92,81 @@ public class CommentManager {
 		}
 		return clist;
 	}
+	
+	
+	//덧글의 수를 세는 메서드
+		public int getCommentCount(int con_num) throws Exception {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList cm = null;
+			int count=0;
+			
+			try {
+				conn = getConnection();
+				String sql = "select * from theme_comment_pink where content_num="+con_num+" order by reg_date desc";
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					cm = new ArrayList();
+					do {
+						Comment cdb = new Comment();
+						cdb.setCommenter(rs.getString("commenter"));
+						cdb.setCommentt(rs.getString("commentt"));
+						cdb.setReg_date(rs.getTimestamp("reg_date"));
+						cm.add(cdb);					
+					} while(rs.next());
+					count = cm.size();
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+				JdbcUtil.close(conn);
+			}
+			return count;
+			
+		}
+		
+		//덧글을 삭제하는 메서드
+		public int deleteComment(int content_num, String passwd, int comment_num) throws Exception {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String dbpasswd ="";
+			int x=-1;
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement("select passwd from theme_comment_pink where content_num=? and comment_num=?");
+				pstmt.setInt(1, content_num);
+				pstmt.setInt(2, comment_num);
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					dbpasswd = rs.getString("passwd");
+					if(dbpasswd.equals(passwd)) {
+						pstmt = conn.prepareStatement("delete from theme_comment_pink where content_num=? and comment_num=?");
+						pstmt.setInt(1, content_num);
+						pstmt.setInt(2, comment_num);
+						pstmt.executeUpdate();
+						x=1;
+					} else 
+						x=0;
+				}
+
+			} catch(Exception e) {
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+				JdbcUtil.close(conn);
+			}
+			return x;
+		}
 }
 
 
