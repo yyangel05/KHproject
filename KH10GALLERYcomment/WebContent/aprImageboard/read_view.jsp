@@ -87,12 +87,6 @@ function validate(form) {
 <table width="100%" border="1" cellpadding="1" cellspacing="0">
 <input type="hidden" name="content_id" value="<%=theme.getId() %>">
 <input type="hidden" name="comment_id" value="<%=2 %>"> 
-
-	
-	<%
-	
-	%>
-	
 	<tr>
 	    <td>ÀÛ¼ºÀÚ</td>
 	    <td><input type=text name=commenter></td>
