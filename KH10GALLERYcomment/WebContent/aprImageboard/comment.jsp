@@ -37,7 +37,7 @@
 %>
 
 <script>
-alert("댓글등록했당");
+alert("댓글등록했당 오잉 정말로??? 변경코드 확인하기");
 location.href="list.jsp";
 </script>
 
