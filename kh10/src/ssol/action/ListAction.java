@@ -10,7 +10,9 @@ import soldesk.board.BoardDBBean;
 
 public class ListAction implements CommandAction { //글 목록 처리
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		
 		String pageNum = request.getParameter("pageNum"); //페이지번호
+		String search = request.getParameter("search"); //검색어
 		
 		if(pageNum == null) {
 			pageNum = "1";
