@@ -97,20 +97,50 @@
 	
 	<!-- 이전섹션으로 넘어가기 링크 -->
 	<c:if test="${startPage > 10}">
-		<a href="/kh10/MVC/list.do?pageNum=${startPage - 10}">[이전]</a>
+		<c:if test='${search.equals("") || search=null}'>
+			<a href="/kh10/MVC/list.do?pageNum=${startPage - 10}">[이전]</a>
+		</c:if>
+		<c:if test="${search != null}">
+			<a href="/kh10/MVC/list.do?pageNum=${startPage - 10}&search=${search}&searchn=${searchn}">[이전]</a>
+		</c:if>
 	</c:if>
 	
 	<!-- 이전과 다음 사이의 페이징 된 섹션의 번호 링크 -->
 	<c:forEach var="i" begin="${startPage}" end="${endPage}">
-		<a href="/kh10/MVC/list.do?pageNum=${i}">[${i}]</a>
+		<c:if test='${search.equals("") || search=null}' >
+			<a href="/kh10/MVC/list.do?pageNum=${i}">[${i}]</a>
+		</c:if>
+		<c:if test="${search != null}">
+			<a href="/kh10/MVC/list.do?pageNum=${i}&search=${search}&searchn=${searchn}">[${i}]</a>
+		</c:if>
+		
 	</c:forEach>
 	
 	<!-- 다음섹션으로 넘어가기 링크 -->
 	<c:if test="${endPage < pageCount}">
-		<a href="/kh10/MVC/list.do?pageNum=${startPage + 10}">[다음]</a>
+		<c:if test='${search.equals("") || search=null}' >
+			<a href="/kh10/MVC/list.do?pageNum=${startPage + 10}">[다음]</a>
+		</c:if>
+		<c:if test="${search != null}">
+			<a href="/kh10/MVC/list.do?pageNum=${startPage + 10}&search=${search}&searchn=${searchn}">[다음]</a>
+		</c:if>	
 	</c:if>
 
 </c:if>
+
+<!-- 검색 폼 만들기 -->
+<p>
+<form>
+<select name="searchn">
+	<option value="0">작성자</option>
+	<option value="1">제목</option>
+	<option value="2">내용</option> 
+</select>
+
+<input type="text" name="search" size="15" maxlength="50"/> 
+<input type="submit" value="검색"/>
+</form>
+
 </center>
 </body>
 </html>
