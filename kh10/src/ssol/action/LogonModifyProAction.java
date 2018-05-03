@@ -9,6 +9,7 @@ import ssol.action.CommandAction;
 
 public class LogonModifyProAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		
 		request.setCharacterEncoding("euc-kr");
 		
 		String id = request.getParameter("id");

@@ -51,7 +51,7 @@
 	</tr>	
 	
 	<tr>
-		<td rowspan="2" bgcolor="${bodyback_c}" width="300" >메인입니다.</td>
+		<td rowspan="2" bgcolor="${bodyback_c}" width="300">메인입니다.</td>
 	</tr>
 </table>
 <br>
