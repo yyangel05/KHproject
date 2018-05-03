@@ -1,0 +1,6 @@
+<%@ page contentType="text/html; charset=euc-kr" %>
+includee.jsp에서 지정한 번호: <%= number %>
+<p>
+<%
+	String dataFolder="c:\\data";
+%>

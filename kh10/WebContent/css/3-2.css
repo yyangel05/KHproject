@@ -1,0 +1,12 @@
+@charset "EUC-KR";
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS3 Selector Basic Page </title>
+	<style>
+		* {color : red;}
+	</style>
+</head>
+<body>
+	<h1>Horang Butterfly</h1>
+</body>

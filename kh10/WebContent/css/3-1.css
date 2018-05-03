@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS3 Selector Basic </title>
+	<sytle>
+		h1 {
+			color:red;
+			background-color : yellow;
+		}
+	</style>
+</head>
+<body>
+	<h1>CSS3 Selector Basic</h1>
+</body>
+</html>
