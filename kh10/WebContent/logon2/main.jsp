@@ -45,7 +45,7 @@
 		${sessionScope.memId}님이 <br> 방문하셨습니다.
 		<form method="post" action="/kh10/aprLogon/logout.do">
 			<input type="submit" value="로그아웃">
-			<input type="button" value="회원정보변경" onclick="document.location.href='kh10/aprLogon/modify.do'">
+			<input type="button" value="회원정보변경" onclick="document.location.href='/kh10/aprLogon/modify.do'">
 		</form>
 		</td>
 	</tr>	

@@ -108,7 +108,7 @@ public class LogonDBBean {
 				else 
 					x=0;
 			}
-			else x=-1;			
+			else x=-1;
 			
 		} catch(Exception ex) {
 			ex.printStackTrace();			

@@ -3,7 +3,7 @@
 
 <c:if test="${check==1}">
 	<c:set var="memId" value="${id}" scope="session"/>
-	<meta http-equiv="Refresh" content="0;url="/kh10/aprLogon/main.do"/>
+	<meta http-equiv="Refresh" content="0;url=/kh10/aprLogon/main.do"/>
 </c:if>
 <c:if test="${check==0}">
 	<script>

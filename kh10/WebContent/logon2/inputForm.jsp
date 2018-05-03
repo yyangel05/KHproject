@@ -19,7 +19,7 @@ function checkIt() {
 		alert("비밀번호를 입력하세요");
 		return false;
 	}
-	if(!userinput.passwd.value != userinput.passwd2.value) {
+	if(userinput.passwd.value != userinput.passwd2.value) {
 		alert("비밀번호를 동일하게 입력하세요");
 		return false;
 	}
@@ -27,7 +27,7 @@ function checkIt() {
 		alert("사용자 이름를 입력하세요");
 		return false;
 	}
-	if(!userinput.jumin1.value != userinput.jumin2.value) {
+	if(!userinput.jumin1.value || !userinput.jumin2.value) {
 		alert("주민등록번호를 입력하세요");
 		return false;
 	}
@@ -61,7 +61,7 @@ function openConfirmId(userinput) {
 	</tr>	
 	<tr>
 		<td width="200" bgcolor="${value_c}"><b>아이디 입력</b></td>
-		<td width="400" bgcolor="${value_c}">&nbsp</td>
+		<td width="400" bgcolor="${value_c}">&nbsp;</td>
 	</tr>
 	<tr>
 		<td width="200">사용자 ID</td>
