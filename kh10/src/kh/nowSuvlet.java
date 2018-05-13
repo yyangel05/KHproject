@@ -16,14 +16,13 @@ public class nowSuvlet extends HttpServlet {
 
 		PrintWriter writer = response.getWriter();
 		writer.println("<html>");
-		writer.println("<head><title>ÇöÀç ½Ã°£</title></head>");
+		writer.println("<head><title>í˜„ìž¬ ì‹œê°„</title></head>");
 		writer.println("<body>");
-		writer.println("ÇöÀç ½Ã°£:");
+		writer.println("í˜„ìž¬ ì‹œê°„:");
 		writer.println(now.toString());
 		writer.println("</body>");
 		writer.println("</html>");
 		writer.close();
-		//hi roo
-		System.out.println("¸Û±¸½º¹ä¹ö°Å");
+		//bye~~
 	}
 }
