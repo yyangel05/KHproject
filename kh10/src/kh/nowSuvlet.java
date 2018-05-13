@@ -25,5 +25,6 @@ public class nowSuvlet extends HttpServlet {
 		writer.close();
 		//bye~~
 		//멍구스밥버거
+		//쭈꾸미
 	}
 }
