@@ -24,5 +24,6 @@ public class nowSuvlet extends HttpServlet {
 		writer.println("</html>");
 		writer.close();
 		//hi roo
+		System.out.println("¸Û±¸½º¹ä¹ö°Å");
 	}
 }
